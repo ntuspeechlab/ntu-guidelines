@@ -150,9 +150,9 @@ Following are some tips for python training scripts using slurm to allocate GPU 
              --cmvn_dir ./data/$train_set/global_cmvn \
              $dir $init_method || exit 1;
       ```
-   If your python scripts are multi-threads style, you can allocate multiple GPUs with one srun job.
-       
-       ```
+  If your python scripts are multi-threads style, you can allocate multiple GPUs with one srun job.
+     
+   ```
          num_gpus=2
          threads=$[ num_gpus*2 ]
          # cmd="slurm.pl --quiet --nodelist=node01"
@@ -169,8 +169,7 @@ Following are some tips for python training scripts using slurm to allocate GPU 
              --checkpoint "$checkpoint" \
              --cmvn_dir ./data/$train_set/global_cmvn \
              $dir $init_method || exit 1;
-      ```
+   ```
 
 <big>**NOTICE**</big>
-   
-    While submit GPU jobs, you would better set ```--num-threads 2*$num_gpus``` for both **Kaldi** or **Python** scripts which can help a lot for the efficiency use of GPUs.
+While submit GPU jobs, you would better set ```--num-threads 2*$num_gpus``` for both **Kaldi** or **Python** scripts which can help a lot for the efficiency use of GPUs.
